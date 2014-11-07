@@ -1,4 +1,6 @@
-class UsersController < ApplicationController
+class UsersController < SecureApplicationController
+    
+    layout 'layouts/application'
   
   def index
     if params[:name]
