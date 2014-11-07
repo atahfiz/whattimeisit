@@ -8,23 +8,13 @@
 </head>
 <body>
 
-<div class="row">
-  <div class="col-sm-10">
-  <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg,  class: "alert alert-#{name} alert-dismissible" %>
-      <button type="button" class="close" data-dismiss="alert">
-        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-      </button>
-  <% end %>
-  </div>
-</div>
-  
-  
-  <% if logged_in? %>
-    Hello <%= current_user.name %>, <%= link_to "Log out", logout_path, method: "delete" %>
-  <% end %>
+<%= render 'layouts/nav' %>
 
-<%= yield %>
+<%= render 'layouts/message' %>
+
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

@@ -1,16 +1,26 @@
-<h1> User Listing </h1>
-
-<table border="1">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-    </tr>
-    <% @user.each do |user| %>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="page-header">
+            <h1> User Listing </h1>
+        </div>
+        
+        <table class="table table-striped table-hover">
         <tr>
-            <td><%= user.name %></td>
-            <td><%= user.email %></td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Since</th>
         </tr>
-    <% end %>
-</table>
+        <% @user.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.email %></td>
+                <td><%= user.created_at %></td>
+            </tr>
+        <% end %>
+    </table>
+    </div>
+</div>
     
 
