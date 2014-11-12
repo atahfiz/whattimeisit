@@ -1,11 +1,14 @@
 Workspace::Application.routes.draw do
+  get 'profiles/index'
+
   resources :users
   
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
-  get 'new' => 'users#new'
+  get 'signup' => 'users#new'
   get 'home' => 'users#show'
+  get 'profile' => 'profiles#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
