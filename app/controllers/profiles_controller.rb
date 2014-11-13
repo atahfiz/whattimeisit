@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  def index
-    @user = Profile.find(session[:user_id])
+  
+  def show
+    @user = Profile.find_by(params[:id])
   end
 end

@@ -26,12 +26,31 @@ class UsersController < SecureApplicationController
      end
    end
    
+   def edit
+    @user = User.find(params[:id])
+   end
+   
+   def update
+       @user = User.find(params[:id])
+       
+       if @user.update(user_params)
+           #Update Successful
+           flash[:success] = "Profile Updated"
+           redirect_to @user
+       else
+           #Fail
+           flash[:danger] = "Fail to update"
+           render 'edit'
+       end
+   end
+   
     def show
-    @user = User.find(session[:user_id])
+     @user = User.find(params[:id])
     end
    
    private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation,
+                                    profile_attributes: [:id, :location, :birthdate])
     end
 end
